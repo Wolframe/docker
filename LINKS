@@ -1,0 +1,14 @@
+ links
+
+Redhat:
+-  https://github.com/dotcloud/docker/blob/master/contrib/mkimage-yum.sh
+
+Slackware:
+- https://github.com/vbatts/slackware-docker
+- http://slackworld.berlios.de/2007/chroot_howto.html
+
+docker:
+https://www.digitalocean.com/community/articles/how-to-install-and-use-docker-getting-started
+
+cfengine and docker:
+https://cfengine.com/company/blog-detail/cfengine-and-docker-ensure-application-availability-and-container-integrity/

@@ -73,3 +73,46 @@ chroot $CHROOT_DIR apt-get install -y --force-yes gpgv
 
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
+
+# Slackware
+
+CHROOT_DIR=slackware
+
+# make a mirror of packages, actually better would be to repect here 'slackware_packages' too)
+for set in a ap l n; do
+	wget -nv -r -l1 --no-parent -A txz http://mirror.netcologne.de/slackware/slackware64-14.1/slackware64/$set/
+	wget -nv -r -l1 --no-parent -A tgz http://mirror.netcologne.de/slackware/slackware64-14.1/slackware64/$set/
+	wget -O mirror.netcologne.de/slackware/slackware64-14.1/slackware64/$set/tagfile -nv http://mirror.netcologne.de/slackware/slackware64-14.1/slackware64/$set/tagfile
+done
+
+mkdir $CHROOT_DIR
+
+# we need tar-1.13 from the tar package for pkginstall to work
+tar xf mirror.netcologne.de/slackware/slackware64-14.1/slackware64/a/tar-1.26-x86_64-1.tgz bin/tar-1.13
+
+# we need installpkg from pkgtools
+# we have to patch it, so it uses the correct tar and doesn't destroy things
+# on the host!
+tar xf mirror.netcologne.de/slackware/slackware64-14.1/slackware64/a/pkgtools-14.1-noarch-2.tgz sbin/installpkg
+sed -i "s@TAR=.*@TAR=$PWD/bin/tar-1.13@g" sbin/installpkg
+sed -i 's@/sbin/ldconfig@/bin/true@g' sbin/installpkg
+
+# install the bare minimum
+for package in aaa_base aaa_elflibs aaa_terminfo bash glibc-solibs pkgtools tar coreutils util-linux xz grep sed; do
+	package_file=`find mirror.netcologne.de -name "$package*.t[xg]z"`	
+	sbin/installpkg --terse --root $CHROOT_DIR $package_file
+done
+
+# make the packages accessible in the chrooted environment
+cp -a mirror.netcologne.de slackware/
+
+for package in `cat slackware_packages`; do
+	package_file=`find mirror.netcologne.de -name "$package*.t[xg]z"`
+	chroot $CHROOT_DIR /sbin/installpkg --terse $package_file
+done
+
+rm -f sbin/installpkg
+rmdir sbin
+rm -f bin/tar-1.13
+rmdir bin
+
