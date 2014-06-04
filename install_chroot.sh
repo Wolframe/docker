@@ -15,7 +15,9 @@ sed -i 's/^SigLevel.*/SigLevel = Never/g' $CHROOT_DIR/etc/pacman.conf
 systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
-# Fedora
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/archlinux-64-base:201406
+
+# Centos
 
 CHROOT_DIR=centos
 
@@ -46,6 +48,8 @@ chroot $CHROOT_DIR /bin/rpm -v --rebuilddb
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
 
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos-64-base:6.5
+
 # Debian
 
 CHROOT_DIR=debian
@@ -56,6 +60,8 @@ debootstrap --verbose --variant=minbase wheezy $CHROOT_DIR http://http.debian.ne
 
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
+
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/debian-64-base:7.5
 
 # Ubuntu
 
@@ -73,6 +79,8 @@ chroot $CHROOT_DIR apt-get install -y --force-yes gpgv
 
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
+
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu-lucid-64-base:10.04
 
 # Slackware
 
@@ -115,4 +123,10 @@ rm -f sbin/installpkg
 rmdir sbin
 rm -f bin/tar-1.13
 rmdir bin
+
+systemd-nspawn -D $CHROOT_DIR 
+chroot $CHROOT_DIR
+
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/slackware64-base:14.1
+
 
