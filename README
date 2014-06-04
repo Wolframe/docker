@@ -1,0 +1,21 @@
+chroot experiments
+------------------
+
+things to check out
+- image creation to get first set of bare gold images
+- cloning and describing build/test images
+
+software to check out
+- Unix chroot
+- Linux systemd-spawnd
+- FreeBSD jails
+- NetBSD sysjail
+- Linux lxc-tools
+- higher level tools
+ - docker
+ - vagrant 
+ - salt
+ - packer
+
+setarch linux32
+chroot, path is inherited from host!
