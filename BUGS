@@ -1,2 +1,6 @@
 Ubuntu:
 - groups: cannot find name for group ID 19
+Redhat:
+- shared-mime-info-0.70-4.el6.i686
+  warning: %post(shared-mime-info-0.70-4.el6.i686) scriptlet failed, exit
+  status 127
