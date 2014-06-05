@@ -131,7 +131,7 @@ tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos6-i3
 
 # Debian
 
-CHROOT_DIR=debian
+CHROOT_DIR=debian7-x86_64
 
 mkdir $CHROOT_DIR
 
@@ -140,7 +140,7 @@ debootstrap --verbose --variant=minbase wheezy $CHROOT_DIR http://http.debian.ne
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
 
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/debian-64-base:7.5
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/debian7-x86_64-base:7.5
 
 # Ubuntu
 
