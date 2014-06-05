@@ -13,3 +13,8 @@ https://www.digitalocean.com/community/articles/how-to-install-and-use-docker-ge
 
 cfengine and docker:
 https://cfengine.com/company/blog-detail/cfengine-and-docker-ensure-application-availability-and-container-integrity/
+
+https://github.com/progrium/dokku
+
+daily builds using docker:
+- drone
