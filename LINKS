@@ -11,8 +11,18 @@ Slackware:
 docker:
 https://www.digitalocean.com/community/articles/how-to-install-and-use-docker-getting-started
 http://phusion.github.io/baseimage-docker/#intro
+
+a more complete base image for ubuntu, but certain things appear hacky!
 https://github.com/phusion/baseimage-docker/tree/master/image
+
+# the guy from dockerui
 http://crosbymichael.com/dockerfile-best-practices.html
+
+# base images
+https://github.com/dotcloud/docker/tree/master/contrib
+
+docker fronts:
+dockerui: https://github.com/crosbymichael/dockerui
 
 cfengine and docker:
 https://cfengine.com/company/blog-detail/cfengine-and-docker-ensure-application-availability-and-container-integrity/
@@ -23,4 +33,7 @@ daily builds using docker:
 - http://drone.io
 - https://www.shippable.com/: uses docker and salt minions to provision
   the images
-  
+
+http://www.cybera.ca/news-and-events/tech-radar/contain-your-enthusiasm-part-two-jails-zones-openvz-and-lxc/
+http://lwn.net/Articles/531114/
+http://kimh.github.io/blog/en/docker/gotchas-in-writing-dockerfile-en/

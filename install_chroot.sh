@@ -16,6 +16,7 @@ systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/archlinux-x86_64-base:201406
+docker tag wolframe/archlinux-x86_64-base:201406 wolframe/archlinux-x86_64-base:latest
 
 # Centos 5
 
@@ -97,6 +98,7 @@ systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos6-x86_64-base:6.5
+docker tag wolframe/centos6-x86_64-base:6.5 wolframe/centos6-x86_64-base:latest
  
 # Centos 6 (32-bit)
 
@@ -132,6 +134,7 @@ systemd-nspawn --personality=x86 -D $CHROOT_DIR
 linux32 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos6-i386-base:6.5
+docker tag wolframe/centos6-i386-base:6.5 wolframe/centos6-i386-base:latest
 
 # Debian
 
@@ -145,6 +148,7 @@ systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/debian7-x86_64-base:7.5
+docker tag wolframe/debian7-x86_64-base:7.5 wolframe/debian7-x86_64-base:latest
 
 # Ubuntu 10.04
 
@@ -164,6 +168,7 @@ systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1004-x86_64-base:10.04
+docker tag wolframe/ubuntu1004-x86_64-base:10.04 wolframe/ubuntu1004-x86_64-base:latest
 
 # Ubuntu 14.04
 
@@ -183,6 +188,7 @@ systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1404-x86_64-base:14.04
+docker tag wolframe/ubuntu1404-x86_64-base:14.04 wolframe/ubuntu1404-x86_64-base:latest
 
 # Slackware
 
@@ -232,5 +238,4 @@ systemd-nspawn -D $CHROOT_DIR
 chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/slackware-x86_64-base:14.1
-
-
+docker tag wolframe/slackware-x86_64-base:14.1 wolframe/slackware-x86_64-base:latest

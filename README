@@ -10,6 +10,7 @@ software to check out
 - Linux systemd-spawnd
 - FreeBSD jails
 - NetBSD sysjail
+- OpenVZ/Parallels (Linux)
 - higher level tools (image provisioning and management)
   - Linux lxc-tools
     - the scripts look a little bit alpha, on Arch many things break
