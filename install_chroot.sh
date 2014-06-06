@@ -146,13 +146,32 @@ chroot $CHROOT_DIR
 
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/debian7-x86_64-base:7.5
 
-# Ubuntu
+# Ubuntu 10.04
 
-CHROOT_DIR=ubuntu
+CHROOT_DIR=ubuntu1004-x86_64
 
 mkdir $CHROOT_DIR
 
-debootstrap --verbose --variant=minbase lucid $CHROOT_DIR http://mirror.switch.ch/ftp/mirror/ubuntu/
+debootstrap --arch amd64 --verbose --variant=minbase lucid $CHROOT_DIR http://mirror.switch.ch/ftp/mirror/ubuntu/
+
+# needed for package configuration
+#chroot $CHROOT_DIR apt-get install -y --force-yes apt-utils
+
+# needed for package GPG signature check
+chroot $CHROOT_DIR apt-get install -y --force-yes gpgv
+
+systemd-nspawn -D $CHROOT_DIR 
+chroot $CHROOT_DIR
+
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1004-x86_64-base:10.04
+
+# Ubuntu 14.04
+
+CHROOT_DIR=ubuntu1404-x86_64
+
+mkdir $CHROOT_DIR
+
+debootstrap --arch amd64 --verbose --variant=minbase trusty $CHROOT_DIR http://mirror.switch.ch/ftp/mirror/ubuntu/
 
 # needed for package configuration
 chroot $CHROOT_DIR apt-get install -y --force-yes apt-utils
@@ -163,7 +182,7 @@ chroot $CHROOT_DIR apt-get install -y --force-yes gpgv
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
 
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu-lucid-64-base:10.04
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1404-x86_64-base:14.04
 
 # Slackware
 
