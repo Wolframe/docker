@@ -42,6 +42,8 @@ rm RPM-GPG-KEY-CentOS-5
 yum --installroot=`pwd`/$CHROOT_DIR install -y yum
 yum --installroot=`pwd`/$CHROOT_DIR install -y coreutils procps net-tools wget
 
+cp /etc/resolv.conf $CHROOT_DIR/etc/
+
 # rebuild the RPM database with the rpm inside the chroot
 cd $CHROOT_DIR/var/lib/rpm
 mv Packages Packages-ORIG
@@ -88,6 +90,8 @@ yum --installroot=`pwd`/$CHROOT_DIR install -y coreutils procps net-tools wget
 
 # rebuild the RPM database with the rpm inside the chroot
 chroot $CHROOT_DIR /bin/rpm -v --rebuilddb
+
+cp /etc/resolv.conf $CHROOT_DIR/etc/
 
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
@@ -163,7 +167,7 @@ tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu-luc
 
 # Slackware
 
-CHROOT_DIR=slackware
+CHROOT_DIR=slackware-x86_64
 
 # make a mirror of packages, actually better would be to repect here 'slackware_packages' too)
 for set in a ap l n; do
@@ -198,6 +202,8 @@ for package in `cat slackware_packages`; do
 	chroot $CHROOT_DIR /sbin/installpkg --terse $package_file
 done
 
+cp /etc/resolv.conf $CHROOT_DIR/etc/
+
 rm -f sbin/installpkg
 rmdir sbin
 rm -f bin/tar-1.13
@@ -206,6 +212,6 @@ rmdir bin
 systemd-nspawn -D $CHROOT_DIR 
 chroot $CHROOT_DIR
 
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/slackware64-base:14.1
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/slackware-x86_64-base:14.1
 
 
