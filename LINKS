@@ -37,3 +37,7 @@ daily builds using docker:
 http://www.cybera.ca/news-and-events/tech-radar/contain-your-enthusiasm-part-two-jails-zones-openvz-and-lxc/
 http://lwn.net/Articles/531114/
 http://kimh.github.io/blog/en/docker/gotchas-in-writing-dockerfile-en/
+
+helios (spotify):
+- on top of docker
+- ZooKeeper
