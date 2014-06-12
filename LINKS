@@ -8,6 +8,9 @@ Slackware:
 - http://slackworld.berlios.de/2007/chroot_howto.html
 - http://www.linuxquestions.org/questions/slackware-installation-40/install-slackware-to-a-folder-using-chroot-825598/
 
+OpenSuse:
+- http://flavio.castelli.name/2014/05/06/building-docker-containers-with-kiwi/
+
 docker:
 https://www.digitalocean.com/community/articles/how-to-install-and-use-docker-getting-started
 http://phusion.github.io/baseimage-docker/#intro
