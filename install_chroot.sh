@@ -2,22 +2,6 @@
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:${PATH}
 
-# ArchLinux
-
-CHROOT_DIR=archlinux-x86_64
-
-mkdir $CHROOT_DIR
-
-pacstrap -c -d $CHROOT_DIR filesystem grep findutils coreutils glibc bash pacman procps-ng
-
-sed -i 's/^SigLevel.*/SigLevel = Never/g' $CHROOT_DIR/etc/pacman.conf
-
-systemd-nspawn -D $CHROOT_DIR
-chroot $CHROOT_DIR
-
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/archlinux-x86_64-base:201406
-docker tag wolframe/archlinux-x86_64-base:201406 wolframe/archlinux-x86_64-base:latest
-
 # Centos 5
 
 CHROOT_DIR=centos5
