@@ -44,3 +44,13 @@ http://kimh.github.io/blog/en/docker/gotchas-in-writing-dockerfile-en/
 helios (spotify):
 - on top of docker
 - ZooKeeper
+
+CoreOS:
+- etcd
+- systemd + fleet
+- docker
++ CloudFormation to manage Amazon instances
+http://marceldegraaf.net/2014/04/24/experimenting-with-coreos-confd-etcd-fleet-and-cloudformation.html
+
+Cocaine:
+- private cloud using docker (Yandex)
