@@ -6,6 +6,8 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:${PATH}
 
 CHROOT_DIR=centos6-x86_64
 
+rm -rf $CHROOT_DIR
+
 mkdir $CHROOT_DIR
 
 mkdir -p $CHROOT_DIR/var/lib/rpm
