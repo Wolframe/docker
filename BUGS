@@ -1,6 +1,8 @@
 Ubuntu:
 - groups: cannot find name for group ID 19
-Redhat:
+Centos 6:
 - shared-mime-info-0.70-4.el6.i686
   warning: %post(shared-mime-info-0.70-4.el6.i686) scriptlet failed, exit
   status 127
+Centos 5:
+/usr/sbin/groupadd: error while loading shared libraries: libselinux.so.1: cannot open shared object file: No such file or directory
