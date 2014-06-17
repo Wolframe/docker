@@ -1,20 +1,6 @@
 #!/bin/sh
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:${PATH}
-
-# Centos 5
-
-
-# rebuild the RPM database with the rpm inside the chroot
-chroot $CHROOT_DIR /bin/rpm -v --rebuilddb
-
-cp /etc/resolv.conf $CHROOT_DIR/etc/
-
-systemd-nspawn -D $CHROOT_DIR 
-chroot $CHROOT_DIR
-
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos6-x86_64-base:6.5
-docker tag wolframe/centos6-x86_64-base:6.5 wolframe/centos6-x86_64-base:latest
  
 # Centos 6 (32-bit)
 
