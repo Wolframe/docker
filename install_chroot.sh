@@ -38,20 +38,6 @@ linux32 chroot $CHROOT_DIR
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos6-i386-base:6.5
 docker tag wolframe/centos6-i386-base:6.5 wolframe/centos6-i386-base:latest
 
-# Debian
-
-CHROOT_DIR=debian7-x86_64
-
-mkdir $CHROOT_DIR
-
-debootstrap --verbose --variant=minbase wheezy $CHROOT_DIR http://http.debian.net/debian/
-
-systemd-nspawn -D $CHROOT_DIR 
-chroot $CHROOT_DIR
-
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/debian7-x86_64-base:7.5
-docker tag wolframe/debian7-x86_64-base:7.5 wolframe/debian7-x86_64-base:latest
-
 # Ubuntu 10.04
 
 CHROOT_DIR=ubuntu1004-x86_64

@@ -1,4 +1,4 @@
-FROM wolframe/centos6-x86_64-develop
+FROM wolframe/debian7-x86_64-develop
 MAINTAINER abaumann@yahoo.com
 
-RUN yum -y install libicu-devel openssl-devel sqlite-devel postgresql-devel libxml2-devel libxslt-devel python3-devel zlib-devel libpng-devel pam-devel cyrus-sasl-devel doxygen
+RUN apt-get -y --force-yes install libboost-dev libboost-program-options-dev libboost-filesystem-dev libboost-system-dev libboost-regex-dev libboost-thread-dev libboost-random-dev libboost-locale-dev libssl-dev libsqlite3-dev sqlite3 libpq-dev libxml2-dev libxslt1-dev python3-dev zlib1g-dev libpng12-dev libpam0g-dev libsasl2-dev sasl2-bin expect telnet xsltproc doxygen docbook-xsl

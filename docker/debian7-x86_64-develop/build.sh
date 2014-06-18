@@ -1,4 +1,4 @@
 #!/bin/sh
 
-docker rmi wolframe/centos6-x86_64-develop:latest
-docker build -t wolframe/centos6-x86_64-develop .
+docker rmi wolframe/debian7-x86_64-develop:latest
+docker build -t wolframe/debian7-x86_64-develop .

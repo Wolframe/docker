@@ -7,7 +7,18 @@ Centos 6:
 - expect, telnet for testing (missing add and rebuild wolframe build and develop images)
 - dito docbook
 - 650 or 605 OSB version?
+- scp
 Centos 5:
 - /usr/sbin/groupadd: error while loading shared libraries: libselinux.so.1: cannot open shared object file: No such file or directory
 - distcc missing on EPEL?
 - warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID 00000000
+- scp
+Debian 7:
+- WARNING: The following packages cannot be authenticated!
+  if fixed,, --force-fsck can be removed again. There is a signing pubkey which is
+  not installed by debootstrap
+- debconf: unable to initialize frontend: Dialog
+  debconf: (TERM is not set, so the dialog frontend is not usable.)
+  debconf: falling back to frontend: Readline
+  debconf: unable to initialize frontend: Readline
+- no signing at the moment in dpkg-buildpackage
