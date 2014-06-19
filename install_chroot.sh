@@ -58,26 +58,6 @@ chroot $CHROOT_DIR
 tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1004-x86_64-base:10.04
 docker tag wolframe/ubuntu1004-x86_64-base:10.04 wolframe/ubuntu1004-x86_64-base:latest
 
-# Ubuntu 14.04
-
-CHROOT_DIR=ubuntu1404-x86_64
-
-mkdir $CHROOT_DIR
-
-debootstrap --arch amd64 --verbose --variant=minbase trusty $CHROOT_DIR http://mirror.switch.ch/ftp/mirror/ubuntu/
-
-# needed for package configuration
-chroot $CHROOT_DIR apt-get install -y --force-yes apt-utils
-
-# needed for package GPG signature check
-chroot $CHROOT_DIR apt-get install -y --force-yes gpgv
-
-systemd-nspawn -D $CHROOT_DIR 
-chroot $CHROOT_DIR
-
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1404-x86_64-base:14.04
-docker tag wolframe/ubuntu1404-x86_64-base:14.04 wolframe/ubuntu1404-x86_64-base:latest
-
 # Slackware
 
 CHROOT_DIR=slackware-x86_64

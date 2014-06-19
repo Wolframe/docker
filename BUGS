@@ -1,5 +1,10 @@
-Ubuntu:
+Ubuntu 14.04:
 - groups: cannot find name for group ID 19
+- debconf: unable to initialize frontend: Dialog
+  debconf: (TERM is not set, so the dialog frontend is not usable.)
+  debconf: falling back to frontend: Readline
+  debconf: unable to initialize frontend: Readline
+- debconf: delaying package configuration, since apt-utils is not installed
 Centos 6:
 - shared-mime-info-0.70-4.el6.i686
   warning: %post(shared-mime-info-0.70-4.el6.i686) scriptlet failed, exit
@@ -13,6 +18,23 @@ Centos 5:
 - distcc missing on EPEL?
 - warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID 00000000
 - scp
+- ** Found 2 pre-existing rpmdb problem(s), 'yum check' output follows:
+  10:centos-release-5-10.el5.centos.i386 has missing requires of /bin/sh
+  10:centos-release-5-10.el5.centos.i386 has missing requires of centos-release-notes
+Non-fatal POSTIN scriptlet failure in rpm package rsyslog-3.22.1-7.el5.i386
+/var/tmp/rpm-tmp.jSTmti: line 5: touch: command not found
+/var/tmp/rpm-tmp.jSTmti: line 5: touch: command not found
+/var/tmp/rpm-tmp.jSTmti: line 5: touch: command not found
+/var/tmp/rpm-tmp.jSTmti: line 5: touch: command not found
+warning: %post(rsyslog-3.22.1-7.el5.i386) scriptlet failed, exit status 127
+  Installing : krb5-libs-1.6.1-71.el5_10.1.i386                                     79/98 
+  Installing : pam-0.99.6.2-12.el5.i386                                             80/98 
+Non-fatal POSTIN scriptlet failure in rpm package pam-0.99.6.2-12.el5.i386
+/var/tmp/rpm-tmp.v8dCXN: line 10: cat: command not found
+/var/tmp/rpm-tmp.v8dCXN: line 11: rm: command not found
+/var/tmp/rpm-tmp.v8dCXN: line 26: install: command not found
+/var/tmp/rpm-tmp.v8dCXN: line 29: install: command not found
+warning: %post(pam-0.99.6.2-12.el5.i386) scriptlet failed, exit status 127
 Debian 7:
 - WARNING: The following packages cannot be authenticated!
   if fixed,, --force-fsck can be removed again. There is a signing pubkey which is
@@ -22,3 +44,4 @@ Debian 7:
   debconf: falling back to frontend: Readline
   debconf: unable to initialize frontend: Readline
 - no signing at the moment in dpkg-buildpackage
+- lsb-release missing

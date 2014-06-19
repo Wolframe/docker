@@ -10,7 +10,7 @@ rm -rf $CHROOT_DIR
 
 mkdir $CHROOT_DIR
 
-debootstrap --verbose --variant=minbase wheezy $CHROOT_DIR http://http.debian.net/debian/
+debootstrap --arch amd64 --verbose --variant=minbase wheezy $CHROOT_DIR http://http.debian.net/debian/
 
 docker rmi wolframe/debian7-x86_64-base:latest
 docker rmi wolframe/debian7-x86_64-base:7.5
