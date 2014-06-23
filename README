@@ -20,9 +20,11 @@ software to check out
    - ExecStart=/usr/bin/docker -d -g /data/work/docker
    - nice image creation, more sort of a sharing in the cloud thing
    - nice for szenario descriptions
-   - base images are gold images? how to create your own?
+   - base images are gold images? how to create your own? with scripts
+     for initial image (done)
    - seems to be alpha, some images are sticking around, runaway device
      maps, etc.
+   - 32-bit support missing currently
  - vagrant 
  - packer
 - SCM software
