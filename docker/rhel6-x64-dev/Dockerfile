@@ -1,4 +1,4 @@
-FROM wolframe/centos6-x86_64-base
+FROM wolframe/rhel6-x64-base
 MAINTAINER abaumann@yahoo.com
 
 WORKDIR /root

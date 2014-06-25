@@ -4,7 +4,7 @@
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:${PATH}
 
-CHROOT_DIR=centos6-x86_64
+CHROOT_DIR=rhel6-x64
 
 rm -rf $CHROOT_DIR
 
@@ -34,9 +34,9 @@ chroot $CHROOT_DIR /bin/rpm -v --rebuilddb
 
 cp /etc/resolv.conf $CHROOT_DIR/etc/
 
-docker rmi wolframe/centos6-x86_64-base:latest
-docker rmi wolframe/centos6-x86_64-base:6.5
+docker rmi wolframe/rhel6-x64-base:latest
+docker rmi wolframe/rhel6-x64-base:6.5
 
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos6-x86_64-base:6.5
-docker tag wolframe/centos6-x86_64-base:6.5 wolframe/centos6-x86_64-base:latest
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/rhel6-x64-base:6.5
+docker tag wolframe/rhel6-x64-base:6.5 wolframe/rhel6-x64-base:latest
  
