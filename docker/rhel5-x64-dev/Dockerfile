@@ -1,4 +1,4 @@
-FROM wolframe/centos5-x86_64-base
+FROM wolframe/rhel5-x64-base
 MAINTAINER abaumann@yahoo.com
 
 WORKDIR /root

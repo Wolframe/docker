@@ -4,7 +4,7 @@
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:${PATH}
 
-CHROOT_DIR=centos5-x86_64
+CHROOT_DIR=rhel5-x64
 
 rm -rf $CHROOT_DIR
 
@@ -53,9 +53,9 @@ cp /etc/resolv.conf $CHROOT_DIR/etc/
 
 yum --installroot=`pwd`/$CHROOT_DIR remove -y db4-utils
 
-docker rmi wolframe/centos5-x86_64-base:latest
-docker rmi wolframe/centos5-x86_64-base:5.10
+docker rmi wolframe/rhel5-x64-base:latest
+docker rmi wolframe/rhel5-x64-base:5.10
 
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/centos5-x86_64-base:5.10
-docker tag wolframe/centos5-x86_64-base:5.10 wolframe/centos5-x86_64-base:latest
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/rhel5-x64-base:5.10
+docker tag wolframe/rhel5-x64-base:5.10 wolframe/rhel5-x64-base:latest
  
