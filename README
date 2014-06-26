@@ -47,3 +47,7 @@ ideas:
   rebuild them with Dockerfile description. Inheritance of descriptions
   is extremly useful in this situation.
   
+requirements for docker on Arch:
+- arch-install-scripts
+- yum and rpm-org
+- debootstrap
