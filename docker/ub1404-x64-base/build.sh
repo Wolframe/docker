@@ -4,7 +4,7 @@
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:${PATH}
 
-CHROOT_DIR=ubuntu1404-x86_64
+CHROOT_DIR=ub1404-x64
 
 rm -rf $CHROOT_DIR
 
@@ -25,10 +25,10 @@ chroot $CHROOT_DIR apt-get update
 # install some editors
 chroot $CHROOT_DIR apt-get -y --force-yes install vim jupp
 
-docker rmi wolframe/ubuntu1404-x86_64-base:latest
-docker rmi wolframe/ubuntu1404-x86_64-base:14.04
+docker rmi wolframe/ub1404-x64-base:latest
+docker rmi wolframe/ub1404-x64-base:14.04
 
-tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ubuntu1404-x86_64-base:14.04
-docker tag wolframe/ubuntu1404-x86_64-base:14.04 wolframe/ubuntu1404-x86_64-base:latest
+tar --numeric-owner -C $CHROOT_DIR -cf - . | docker import - wolframe/ub1404-x64-base:14.04
+docker tag wolframe/ub1404-x64-base:14.04 wolframe/ub1404-x64-base:latest
  
 
