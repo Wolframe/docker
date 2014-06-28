@@ -55,3 +55,8 @@ Debian 7:
 Centos 6 test wolframe repo
 - shadow-utils
 - vim or joe
+
+Slackware 14.1:
+- module-init-tools: not found in any set
+- /etc/slackpkg/mirrors: pick a mirror
+
