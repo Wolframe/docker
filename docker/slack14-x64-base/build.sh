@@ -83,6 +83,7 @@ sed -i 's@^# http://sunsite.informatik.rwth-aachen.de@http://sunsite.informatik.
 
 # update slackpkg
 chroot $CHROOT_DIR slackpkg update
+chroot $CHROOT_DIR slackpkg update gpg
 
 # clean up
 rm -f sbin/installpkg

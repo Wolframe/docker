@@ -59,4 +59,6 @@ Centos 6 test wolframe repo
 Slackware 14.1:
 - module-init-tools: not found in any set
 - /etc/slackpkg/mirrors: pick a mirror
+- slackpkg update gpg executed in base images, but the the problem is still there
+  in devel image
 
