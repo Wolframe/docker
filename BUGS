@@ -52,10 +52,6 @@ Debian 7:
 - ccache in path /usr/lib/ccache before real compiler, everything else doesn't
   work with debian package builder!
 
-Centos 6 test wolframe repo
-- shadow-utils
-- vim or joe
-
 Slackware 14.1:
 - module-init-tools: not found in any set
 - /etc/slackpkg/mirrors: pick a mirror
