@@ -56,3 +56,7 @@ Cocaine:
 - private cloud using docker (Yandex)
 
 http://www.centurylinklabs.com/top-10-open-source-docker-developer-tools/
+
+Docker and CI in the Java world:
+http://www.wouterdanes.net/2014/04/11/continuous-integration-using-docker-maven-and-jenkins.html
+http://3ofcoins.net/2013/09/22/flat-docker-images/
