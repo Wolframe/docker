@@ -6,6 +6,10 @@ Ubuntu 14.04:
   debconf: unable to initialize frontend: Readline
 - debconf: delaying package configuration, since apt-utils is not installed
 
+Centos 7:
+- chroot $CHROOT_DIR /bin/rpm -v --rebuilddb
+  warning: Failed to read auxiliary vector, /proc not mounted?
+
 Centos 6:
 - shared-mime-info-0.70-4.el6.i686
   warning: %post(shared-mime-info-0.70-4.el6.i686) scriptlet failed, exit
