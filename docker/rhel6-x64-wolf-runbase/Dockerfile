@@ -7,6 +7,6 @@ RUN yum -y install vim joe shadow-utils telnet
 RUN wget -O /etc/yum.repos.d/wolframe.repo http://sourceforge.net/projects/wolframe/files/repositories/CentOS-6/wolframe.repo
 RUN yum -y install wolframe
 
-#ENTRYPOINT ["/usr/sbin/wolframed", "-f", "-c", "/etc/wolframe/wolframe.conf"]
+ENTRYPOINT ["/usr/sbin/wolframed", "-f", "-c", "/etc/wolframe/wolframe.conf"]
 
-#EXPOSE 7661
+EXPOSE 7661

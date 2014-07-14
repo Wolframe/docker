@@ -51,3 +51,6 @@ requirements for docker on Arch:
 - arch-install-scripts
 - yum and rpm-org
 - debootstrap
+
+ docker run --net host -i -t wolframe/rhel6-x64-wolf-runbase
+
