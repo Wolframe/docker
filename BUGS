@@ -20,6 +20,7 @@ Centos 6:
 rpmdb: /var/lib/rpm/Name: unexpected file type or format
 error: cannot open Name index using db3 - Invalid argument (22)
 Error response from daemon: No such image: wolframe/centos6-x86_64-base:latest
+- centos release update
 
 Centos 5:
 - /usr/sbin/groupadd: error while loading shared libraries: libselinux.so.1: cannot open shared object file: No such file or directory
