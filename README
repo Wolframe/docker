@@ -1,56 +1,22 @@
-chroot experiments
-------------------
+docker build scripts
+--------------------
 
-things to check out
-- image creation to get first set of bare gold images
-- cloning and describing build/test images
+Build the base using chroot script:
 
-software to check out
-- Unix chroot
-- Linux systemd-spawnd
-- FreeBSD jails
-- NetBSD sysjail
-- OpenVZ/Parallels (Linux)
-- higher level tools (image provisioning and management)
-  - Linux lxc-tools
-    - the scripts look a little bit alpha, on Arch many things break
-    - too low-level, management only in scripts and a config file with
-      parameters for the script
- - docker
-   - ExecStart=/usr/bin/docker -d -g /data/work/docker
-   - nice image creation, more sort of a sharing in the cloud thing
-   - nice for szenario descriptions
-   - base images are gold images? how to create your own? with scripts
-     for initial image (done)
-   - seems to be alpha, some images are sticking around, runaway device
-     maps, etc.
-   - 32-bit support missing currently
- - vagrant 
- - packer
-- SCM software
- - cfengine
- - salt
+  cd builds-scripts/<your_distro>-x86-base/
+  ./build.sh
 
-setarch linux32
-chroot, path is inherited from host!
+Build in the following order:
 
-ideas:
-- download required packages, isos, keys, etc. Stowe them away in a 
-  download archive (so repeatability of builds is ensured without
-  relying on external services)
-- have some simple installation scripts which can generate chroot jail
-- import them as basic images for docker
-- start to describe derived images for building/testing, etc. 
-  (this helps also developers of Wolframe, they can take those images as
-  basis)
-- there are image snapshots but they are not "golden" as we can always
-  rebuild them with Dockerfile description. Inheritance of descriptions
-  is extremly useful in this situation.
-  
-requirements for docker on Arch:
-- arch-install-scripts
-- yum and rpm-org
-- debootstrap
+  cd builds-scripts/<your_distro>-x86-dev/
+  ./build.sh
 
- docker run --net host -i -t wolframe/rhel6-x64-wolf-runbase
+  cd builds-scripts/<your_distro>-x86-wolf-dev/
+  ./build.sh
 
+  cd builds-scripts/<your_distro>-x86-wolf-bld/
+  ./build.sh
+
+Running the last image gives you a running Wolframe server:
+
+docker run --net host -i -t wolframe/<your_distro>-x86-wolf-runbase
