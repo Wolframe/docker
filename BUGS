@@ -63,3 +63,13 @@ Slackware 14.1:
 - slackpkg update gpg executed in base images, but the the problem is still there
   in devel image
 
+
+32-bit docker:
+
+2014/09/28 11:44:12 Error: Error mounting '/dev/mapper/docker-8:1-1171460-76af15113338398979fa336999dd51e79a8f9f286a79d7344b213d05bd61bb61' on '/data/docker/devicemapper/mnt/76af15113338398979fa336999dd51e79a8f9f286a79d7344b213d05bd61bb61': invalid argument
+when importing images
+
+never could run a single docker image
+
+32-bit is really neither tested nor supported!
+ 
